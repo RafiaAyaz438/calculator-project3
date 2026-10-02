@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Smart Calculator</h1>
+        <p class="subtitle">Calculate • Learn • Manage Your Grades</p>
+
+        <!-- Navigation -->
+        <div class="tabs">
+            <button onclick="showCalculator('basic')">Basic</button>
+            <button onclick="showCalculator('scientific')">Scientific</button>
+            <button onclick="showCalculator('cgpa')">CGPA</button>
+        </div>
+
+
+        <!-- BASIC CALCULATOR -->
+        <section id="basic" class="calculator-section">
+
+            <h2>Basic Calculator</h2>
+
+            <input type="text" id="basicDisplay" readonly>
+
+            <div class="buttons">
+                <button onclick="clearBasic()">C</button>
+                <button onclick="deleteBasic()">⌫</button>
+                <button onclick="addBasic('%')">%</button>
+                <button class="operator" onclick="addBasic('/')">÷</button>
+
+                <button onclick="addBasic('7')">7</button>
+                <button onclick="addBasic('8')">8</button>
+                <button onclick="addBasic('9')">9</button>
+                <button class="operator" onclick="addBasic('*')">×</button>
+
+                <button onclick="addBasic('4')">4</button>
+                <button onclick="addBasic('5')">5</button>
+                <button onclick="addBasic('6')">6</button>
+                <button class="operator" onclick="addBasic('-')">−</button>
+
+                <button onclick="addBasic('1')">1</button>
+                <button onclick="addBasic('2')">2</button>
+                <button onclick="addBasic('3')">3</button>
+                <button class="operator" onclick="addBasic('+')">+</button>
+
+                <button onclick="addBasic('0')" class="zero">0</button>
+                <button onclick="addBasic('.')">.</button>
+                <button class="equal" onclick="calculateBasic()">=</button>
+            </div>
+
+        </section>
+
+
+        <!-- SCIENTIFIC CALCULATOR -->
+        <section id="scientific" class="calculator-section hidden">
+
+            <h2>Scientific Calculator</h2>
+
+            <input type="text" id="scientificDisplay" readonly>
+
+            <div class="scientific-buttons">
+
+                <button onclick="scientificFunction('sin')">sin</button>
+                <button onclick="scientificFunction('cos')">cos</button>
+                <button onclick="scientificFunction('tan')">tan</button>
+                <button onclick="scientificFunction('sqrt')">√</button>
+
+                <button onclick="scientificFunction('log')">log</button>
+                <button onclick="scientificFunction('ln')">ln</button>
+                <button onclick="scientificFunction('square')">x²</button>
+                <button onclick="scientificFunction('cube')">x³</button>
+
+                <button onclick="scientificFunction('pi')">π</button>
+                <button onclick="scientificFunction('exp')">eˣ</button>
+                <button onclick="scientificFunction('inverse')">1/x</button>
+                <button onclick="clearScientific()">C</button>
+
+                <button onclick="addScientific('7')">7</button>
+                <button onclick="addScientific('8')">8</button>
+                <button onclick="addScientific('9')">9</button>
+                <button onclick="addScientific('/')">÷</button>
+
+                <button onclick="addScientific('4')">4</button>
+                <button onclick="addScientific('5')">5</button>
+                <button onclick="addScientific('6')">6</button>
+                <button onclick="addScientific('*')">×</button>
+
+                <button onclick="addScientific('1')">1</button>
+                <button onclick="addScientific('2')">2</button>
+                <button onclick="addScientific('3')">3</button>
+                <button onclick="addScientific('-')">−</button>
+
+                <button onclick="addScientific('0')">0</button>
+                <button onclick="addScientific('.')">.</button>
+                <button onclick="calculateScientific()">=</button>
+                <button onclick="addScientific('+')">+</button>
+
+            </div>
+
+        </section>
+
+
+        <!-- CGPA CALCULATOR -->
+        <section id="cgpa" class="calculator-section hidden">
+
+            <h2>CGPA Calculator</h2>
+
+            <p class="instruction">
+                Add your own subjects, select credit hours and select GPA.
+            </p>
+
+            <div id="subjects">
+
+                <div class="subject-row">
+
+                    <input type="text" placeholder="Subject Name">
+
+                    <select class="credit">
+                        <option value="1">1 Credit</option>
+                        <option value="2">2 Credits</option>
+                        <option value="3" selected>3 Credits</option>
+                        <option value="4">4 Credits</option>
+                        <option value="5">5 Credits</option>
+                        <option value="6">6 Credits</option>
+                    </select>
+
+                    <select class="gpa">
+                        <option value="4">4.0 - A</option>
+                        <option value="3.7">3.7 - A-</option>
+                        <option value="3.5">3.5 - B+</option>
+                        <option value="3">3.0 - B</option>
+                        <option value="2.7">2.7 - B-</option>
+                        <option value="2.5">2.5 - C+</option>
+                        <option value="2">2.0 - C</option>
+                        <option value="1.7">1.7 - C-</option>
+                        <option value="1">1.0 - D</option>
+                        <option value="0">0.0 - F</option>
+                    </select>
+
+                    <button class="remove-btn" onclick="removeSubject(this)">
+                        ×
+                    </button>
+
+                </div>
+
+            </div>
+
+            <button class="add-subject" onclick="addSubject()">
+                + Add Subject
+            </button>
+
+            <button class="calculate-cgpa" onclick="calculateCGPA()">
+                Calculate CGPA
+            </button>
+
+            <div class="cgpa-result">
+                <h3>Your CGPA</h3>
+                <div id="cgpaResult">0.00</div>
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
